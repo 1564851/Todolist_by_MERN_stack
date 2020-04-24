@@ -13,7 +13,7 @@ class Weather extends Component {
             color: 'white',
             zIndex:'3'
         }
-        const WeatherIconIDURL =  `http://openweathermap.org/img/wn/${this.props.WeatherIconID}@2x.png`
+        const WeatherIconIDURL =  `https://openweathermap.org/img/wn/${this.props.WeatherIconID}@2x.png`
         
 
         return (

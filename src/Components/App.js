@@ -35,7 +35,7 @@ export class App extends Component {
 
     navigator.geolocation.getCurrentPosition(success)
 
-    let url = `http://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longtitude}&appid=${process.env.WEATHER_APP_ID}`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longtitude}&appid=${process.env.WEATHER_APP_ID}`;
     //Make API for the request
     //WEATHER_APP_ID='42e941caa2f322253f729fb85f026aa6'
     fetch(url).then(res=>res.json()).then(data=>{
