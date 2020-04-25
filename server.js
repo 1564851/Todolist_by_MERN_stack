@@ -1,10 +1,13 @@
 const path = require('path')
 const express = require('express')
 const app = express()
+
+const fetch = require('node-fetch');
 require('dotenv').config();
 
 
 const PORT = process.env.PORT || 5000
+const FetchWeatherAPIKey = process.env.WEATHER_APP_ID
 
 const TodolistModel = require('./TodolistModel')
 
@@ -78,6 +81,8 @@ app.get('/api/changecompleted/:key',async(req,res)=>{
   res.end()
 })
 
+//Make POST request for the weather api
+
 app.get('/api/deletedocument/:key',async(req,res)=>{
   let DeleteKey =  parseInt(req.params.key)
   let UpdateKey =  parseInt(req.params.key) + 1 //The key in which start the loop, the doc with key after the deleted doc
@@ -100,6 +105,23 @@ app.get('/api/deletedocument/:key',async(req,res)=>{
       await doc.save()
    }
   res.end()
+})
+
+//Fetch Weather API
+app.post('/api/fetchweather',async(req,res)=>{
+  let lat = req.body.lat
+  let lng = req.body.lng
+  const WeatherData = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${FetchWeatherAPIKey}`).then(res=>{
+    return res.json()
+  }).then(data=>{
+    let WeatherData = {
+      WeatherIconID: data.weather[0].icon,
+      Temperature: data.main.temp - 273.15,
+      Humidity: data.main.humidity
+    }
+    return WeatherData
+  }).catch(err=>{return err})
+  res.send(JSON.stringify(WeatherData))
 })
 
 

@@ -35,15 +35,28 @@ export class App extends Component {
 
     navigator.geolocation.getCurrentPosition(success)
 
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longtitude}&appid=${process.env.WEATHER_APP_ID}`;
+    let url = '/api/fetchweather';
     //Make API for the request
     //WEATHER_APP_ID='42e941caa2f322253f729fb85f026aa6'
-    fetch(url).then(res=>res.json()).then(data=>{
-      this.setState({
-        WeatherIconID: data.weather[0].icon,
-        Temperature: data.main.temp - 273.15,
-        Humidity: data.main.humidity
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        lat: this.state.latitude,
+        lng: this.state.longtitude
       })
+    }).then(res=>res.json()
+    ).then(data=>{
+      this.setState({
+        WeatherIconID: data.WeatherIconID,
+        Temperature: data.Temperature,
+        Humidity: data.Humidity
+      })
+      console.log(this.state.WeatherIconID)
+    }).catch(err=>{
+      console.log(err)
     })
   }
 
