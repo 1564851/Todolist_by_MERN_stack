@@ -124,10 +124,8 @@ app.post('/api/fetchweather',async(req,res)=>{
   res.send(JSON.stringify(WeatherData))
 })
 
-
-
 process.on('SIGINT', function(){
-  mongoose.connection.close(function(){
+  mongoose.connection.close(()=>{
     console.log('MongoDB disconnected');
      process.exit(0);
     });

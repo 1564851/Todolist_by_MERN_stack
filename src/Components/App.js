@@ -54,7 +54,6 @@ export class App extends Component {
         Temperature: data.Temperature,
         Humidity: data.Humidity
       })
-      console.log(this.state.WeatherIconID)
     }).catch(err=>{
       console.log(err)
     })
