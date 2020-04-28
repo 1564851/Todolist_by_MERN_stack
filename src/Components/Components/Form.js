@@ -26,24 +26,24 @@ class Form extends Component {
         }
 
         return (
-
-            <div style={{
-                textAlign: 'center',
-            }}>
+            <div>
                 <form>
-                    <Grid container spacing={3}>
-                            <Grid item xs={12} sm={11}>
-                                <TextField id="outlined-basic" label="Add Task Here" variant="outlined" name='TodoInput' fullWidth={true}/>
-                            </Grid>
-                            <Grid item xs={12} sm={1}>
-                                <Fab color="primary" aria-label="add" onClick={AddTodo}>
-                                    <AddIcon />
-                                </Fab>
-                            </Grid>
-                    </Grid>
+                    <div style={{
+                        margin: '2vmin',
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(8, 1fr)',
+                    }}>
+                        <TextField id="outlined-basic" label="Add Task Here" variant="outlined" name='TodoInput' fullWidth={true} style={{
+                            gridColumn: '1 / 7',
+                        }}/>
+                        <Fab color="primary" aria-label="add" onClick={AddTodo} style={{
+                            gridColumn: '8 / 9',
+                        }}>
+                            <AddIcon />
+                        </Fab>
+                    </div>
                 </form>
             </div>
-
         )
     }
 }

@@ -34,23 +34,41 @@ export class Image extends Component {
             zIndex:'-1',
             height: '100vh',
             overflow: 'auto',
+            display: 'flex',
+            flexDirection: 'column',
         }
         
         return (
             <div style={ContainerStyle}>
                 <Weather Temperature={this.props.Temperature} Humidity={this.props.Humidity} WeatherIconID={this.props.WeatherIconID}></Weather>
-                    <Container maxWidth="lg" style={{ paddingBottom:'2%', marginTop:'-10%'}}>
-                        <Typography variant="h3" style={{textAlign: "center", color: "white", padding: '2.5%'}}>Hello Jordan</Typography>
-                        <Typography variant="h4" style={this.props.textStyle}>{this.props.date} {this.props.weekday} {this.props.time}</Typography>
-                    </Container>
-                    <Container maxWidth="md">
-                        <Form todos={this.state.todos}></Form>
-                    </Container>
-                    <Container maxWidth="sm">
-                        <form>
-                            <Todo todos={this.state.todos}></Todo>
-                        </form>
-                    </Container>
+                <Container maxWidth="lg" style={{
+                    marginTop: '-14vmin',
+                    marginBottom: '2vmin',
+                    }}>
+                    <Typography variant="h3" style={{
+                        fontSize: '6vmin',
+                        color: 'white',
+                        textAlign: 'center'
+                    }}>Hello Jordan</Typography>
+                    <Typography variant="h3" style={{
+                        fontSize: '6vmin',
+                        color: 'white',
+                        textAlign: 'center',
+                        flexWrap: 'wrap',
+                    }}>{this.props.date} {this.props.time}</Typography>
+                </Container>
+                <Container maxWidth="md" style={{
+                    height: '24vmin',
+                    marginTop: '2vmin',
+                    marginBottom: '2vmin',
+                }}>
+                    <Form todos={this.state.todos}></Form>
+                </Container>
+                <Container maxWidth="md">
+                    <form>
+                        <Todo todos={this.state.todos}></Todo>
+                    </form>
+                </Container>
 
             </div>
         )

@@ -10,17 +10,12 @@ export class App extends Component {
     this.state = {
       time: moment().format('LTS'),
       date: moment().format('L'),
-      weekday: moment().format('dddd'),
       latitude: 22.28552,
       longtitude: 114.15769,
       HalfHourInterval: 10000,
       WeatherIconID: '01d',
       Temperature: 25,
       Humidity: 80,
-      textStyle: {textAlign: "center",
-                  color: "white",
-                  paddingBottom: '2.5%',
-      },
     };
   }
 
@@ -63,7 +58,6 @@ export class App extends Component {
     this.fetchWeather()
     this.interval = setInterval(()=>{this.setState({time: moment().format('LTS'),
                                                     date: moment().format('L'),
-                                                    weekday: moment().format('dddd'),
   });}, 1000)
 
     this.HalfHourInterval = setInterval(()=>{
@@ -79,7 +73,7 @@ export class App extends Component {
     
     return (
       <div>
-        <Image textStyle={this.state.textStyle} date={this.state.date} weekday={this.state.weekday} time={this.state.time} Temperature={this.state.Temperature} Humidity={this.state.Humidity} WeatherIconID={this.state.WeatherIconID}>
+        <Image textStyle={this.state.textStyle} date={this.state.date} time={this.state.time} Temperature={this.state.Temperature} Humidity={this.state.Humidity} WeatherIconID={this.state.WeatherIconID}>
         </Image>
       </div>
     )
