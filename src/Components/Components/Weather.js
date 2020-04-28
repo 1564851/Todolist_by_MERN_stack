@@ -30,10 +30,7 @@ class Weather extends Component {
                         width: '12vmin',
                         height: '12vmin',
                     }}></img>
-                    {/*<h6 style={{
-                        textAlign: 'center',
-                        fontSize: '2vmin', 
-                    }}>{this.props.Temperature.toFixed(1)}˚C {this.props.Humidity}%</h6>*/}
+
                     <Typography variant="h6" style={{
                         textAlign: 'center',
                         fontSize: '2vmin', 

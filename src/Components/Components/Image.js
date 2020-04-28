@@ -58,7 +58,6 @@ export class Image extends Component {
                     }}>{this.props.date} {this.props.time}</Typography>
                 </Container>
                 <Container maxWidth="md" style={{
-                    height: '24vmin',
                     marginTop: '2vmin',
                     marginBottom: '2vmin',
                 }}>

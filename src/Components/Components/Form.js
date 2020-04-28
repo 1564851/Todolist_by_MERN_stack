@@ -33,9 +33,11 @@ class Form extends Component {
                         display: 'grid',
                         gridTemplateColumns: 'repeat(8, 1fr)',
                     }}>
-                        <TextField id="outlined-basic" label="Add Task Here" variant="outlined" name='TodoInput' fullWidth={true} style={{
-                            gridColumn: '1 / 7',
-                        }}/>
+                        <div style={{
+                            gridColumn: '2 / 7',
+                        }}>
+                            <TextField id="outlined-basic" label="Add Task Here" variant="outlined" name='TodoInput' fullWidth={true}/>
+                        </div>
                         <Fab color="primary" aria-label="add" onClick={AddTodo} style={{
                             gridColumn: '8 / 9',
                         }}>

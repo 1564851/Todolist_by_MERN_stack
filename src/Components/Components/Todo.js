@@ -19,13 +19,12 @@ export class Todo extends Component {
                     style={{
                         gridColumn: '1 / 2',
                     }}/>
-                <div 
-                    style={{
-                        textAlign:'center',
+                <div style={{
                         gridColumn: '3 / 7',
                         }}>
                     <Typography variant="h5" style={
-                    todo.completed?{textAlign: "center", color: "white", padding: '2.5%', textDecoration: 'line-through'}:{textAlign: "center", color: "white", padding: '2.5%'}}>{todo.title}</Typography>
+                    todo.completed?{ color: "white", textDecoration: 'line-through', textAlign: 'center'}:{ color: 'white', textAlign: 'center'}}>{todo.title}</Typography>
+
                 </div>
                 <div style={{
                     gridColumn: '8 / 9',
